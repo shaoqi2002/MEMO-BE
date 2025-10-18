@@ -13,11 +13,20 @@ public class CorsConfig {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**")               // 所有接口
-                        .allowedOrigins("*")             // 允许所有来源访问
+                
+                // 开发环境允许 localhost
+                registry.addMapping("/**")
+                        .allowedOrigins("http://localhost:3000")  // 本地前端
                         .allowedMethods("GET","POST","PUT","DELETE","OPTIONS")
-                        .allowedHeaders("*")            // 允许所有请求头
-                        .allowCredentials(true);        // 如果需要带 cookie
+                        .allowedHeaders("*")
+                        .allowCredentials(true);
+
+                // 生产环境允许前端实际域名
+                registry.addMapping("/**")
+                        .allowedOrigins("https://memo-be.up.railway.app")  // 替换成实际部署域名
+                        .allowedMethods("GET","POST","PUT","DELETE","OPTIONS")
+                        .allowedHeaders("*")
+                        .allowCredentials(true);
             }
         };
     }
