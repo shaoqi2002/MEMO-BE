@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ch4.memo.mapper.NotesListMapper">
+    <select id="getAllNotes" resultType="ch4.memo.entity.Note">
+        SELECT * FROM notes
+    </select>
+    <insert id="addNote" parameterType="ch4.memo.entity.Note">
+        INSERT INTO notes (time,content) VALUES (#{time}, #{content})
+    </insert>
+</mapper>
