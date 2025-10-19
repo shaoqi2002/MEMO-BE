@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @Data
 public class Note {
     private int id;
-    private java.sql.Date time;
+    private java.time.LocalDateTime time;
     private String content;
 }

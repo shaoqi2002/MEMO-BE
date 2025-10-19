@@ -25,7 +25,7 @@ public class NotesListMapperTest {
     @Test
     public void testAddNote() {
         Note newNote = new Note();
-        newNote.setTime(new java.sql.Date(System.currentTimeMillis()));
+        newNote.setTime(java.time.LocalDateTime.now());
         newNote.setContent("This is a test note.");
         notesListMapper.addNote(newNote);
     }
